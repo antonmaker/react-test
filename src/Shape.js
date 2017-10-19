@@ -5,7 +5,7 @@ import React, { Component } from 'react';
  * Has two supported forms: square(default), cicrle.
  * Defined through `props.options.shape = ''|'square'|'circle'`.
  */
-class Shape extends Component {
+export default class Shape extends Component {
   render() {
     const options = this.props.options;
 
@@ -26,5 +26,3 @@ class Shape extends Component {
     );
   }
 }
-
-export default Shape;

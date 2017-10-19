@@ -7,7 +7,7 @@ import { random, randomColor } from './functions';
  * Board component. Where all the action happens.
  * Click on the board, to get random Shape appeared on it.
  */
-class Board extends Component {
+export default class Board extends Component {
   constructor(props) {
     super(props);
 
@@ -90,5 +90,3 @@ class Board extends Component {
     );
   }
 }
-
-export default Board;
