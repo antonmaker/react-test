@@ -3,6 +3,10 @@ import Shape from './Shape';
 import SHAPE_CONSTS from './consts';
 import { random, randomColor } from './functions';
 
+/**
+ * Board component. Where all the action happens.
+ * Click on the board, to get random Shape appeared on it.
+ */
 class Board extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +16,12 @@ class Board extends Component {
     }
   }
 
+  /**
+   * Handles click action on the Board.
+   * Adds new Shape to the Board with randomly generated form, width
+   * and color. Adds it to the Board state object.
+   * @param {Proxy} e click event Proxy
+   */
   handleClick(e) {
     if (e.nativeEvent.target.className !== 'Board') return;
 
@@ -37,7 +47,12 @@ class Board extends Component {
     });
   }
 
-  handleCircleClick(key) {
+  /**
+   * Handles click on the Shape.
+   * Deletes the clicked Shape from the Board and state.
+   * @param {Number} key Shape index
+   */
+  handleShapeClick(key) {
     let shapes = this.state.shapes.slice();
     shapes.splice(key, 1);
     this.setState({
@@ -45,13 +60,17 @@ class Board extends Component {
     });
   }
 
+  /**
+   * Shapes renderer
+   * @returns {Array} Array of Shape Components
+   */
   rendershapes() {
-    return this.state.shapes.map((circleOptions, key) => {
+    return this.state.shapes.map((shapeOptions, key) => {
       return (
         <Shape
           key={key}
-          options={circleOptions}
-          onClick={() => this.handleCircleClick(key)}
+          options={shapeOptions}
+          onClick={() => this.handleShapeClick(key)}
         />
       );
     })
