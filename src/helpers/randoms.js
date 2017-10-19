@@ -4,15 +4,23 @@
  * @param {Number} max Maximum range number
  * @returns {Number}
  */
-function random(min, max) {
+export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/**
+ * Generates random boolean
+ * @returns {Boolean}
+ */
+export function randomBoolean() {
+  return !!randomNumber(0, 1);
 }
 
 /**
  * Generates random color Hex string
  * @returns {String}
  */
-function randomColor() {
+export function randomColor() {
   var letters = '0123456789ABCDEF';
   var color = '#';
   for (var i = 0; i < 6; i++) {
@@ -20,5 +28,3 @@ function randomColor() {
   }
   return color;
 }
-
-export { random, randomColor };
